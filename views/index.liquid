@@ -1,31 +1,56 @@
 {% render 'partials/head.liquid' %}
 
- <article class="profile-card">
+<main class="profile-card">
+<section class="profile-heading">
+  <img src="{{ person.avatar }}" alt="" width="800" height="800" class="profile-card-img">
+  <h1>{{ person.name }}</h1>
+</section>
 
 
-    <img src="{{ person.avatar }}" alt="" width="800" height="800" class="profile-card-img" onclick="toggleInfo()">
-    <h1>{{ person.name }}</h1>
-    <div class="profile-info">
-      <h2>Hobbies</h2>
-      <p>🎮 Gamen</p>
-      <p>🖥 PC's</p>
+  <section class="profile-info">
+    <h2>Over mij</h2>
+    <p>{{ person.bio }}</p>
 
-      <h2>Ervaring</h2>
-      <p> <img src="assets/bluedesk.png" alt=""> Stage Bluedesk</p>
-      <p> <img src="assets/justbetter.png" alt=""> Stage Justbetter</p>
-      <p> <img src="assets/talland.png" alt=""> MBO SD</p>
-
-      <h2>links</h2>
-      <div class="profile-card-links">
-        <a href="https://github.com/Tjeerd-JW">
-          <img src="assets/github.png" alt="">
+    <h3>Mijn ideale pokemon team</h3>
+    <ul>
+      <li>
+        <a href="#">
+          <img src="{{ person.avatar }}" height="50" width="50" alt="">
+          <p>Pokemon naam</p>
         </a>
-        <a href="https://www.linkedin.com/in/tjeerd-wokke-4b35ba2b6/">
-          <img src="assets/linkedin.png" alt="">
+      </li>
+      <li>
+        <a href="#">
+          <img src="{{ person.avatar }}" height="50" width="50" alt="">
+          <p>Pokemon naam</p>
         </a>
-      </div>
-
-    </div>
-  </article>
+      </li>
+      <li>
+        <a href="#">
+          <img src="{{ person.avatar }}" height="50" width="50" alt="">
+          <p>Pokemon naam</p>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="{{ person.avatar }}" height="50" width="50" alt="">
+          <p>Pokemon naam</p>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="{{ person.avatar }}" height="50" width="50" alt="">
+          <p>Pokemon naam</p>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="{{ person.avatar }}" height="50" width="50" alt="">
+          <p>Pokemon naam</p>
+        </a>
+      </li>
+    </ul>
+  </section>
+</main>
 
 {% render 'partials/foot.liquid' %}

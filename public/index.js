@@ -8,3 +8,11 @@ async function getPerson() {
 
 }
 
+let profileCard = document.querySelector('.profile-card')
+
+profileCard.addEventListener("click", profileCardHandler)
+
+function profileCardHandler() {
+profileCard.classList.toggle('open-card')
+}
+
