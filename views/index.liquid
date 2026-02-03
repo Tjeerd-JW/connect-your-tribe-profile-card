@@ -41,7 +41,7 @@
     <h1>
       {{ person.name }}
     </h1>
-    <p>Bijnaam</p>
+    <p>{{ person.nickname }}</p>
   </section>
 
   <section class="profile-info">
@@ -59,42 +59,12 @@
     <article class="profile-pokemon">
       <h3>Mijn ideale pokemon team</h3>
       <ul>
-        <li>
-          <a href="#">
-            <img src="{{ person.avatar }}" height="50" width="50" alt="">
-            <p>Pokemon naam</p>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <img src="{{ person.avatar }}" height="50" width="50" alt="">
-            <p>Pokemon naam</p>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <img src="{{ person.avatar }}" height="50" width="50" alt="">
-            <p>Pokemon naam</p>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <img src="{{ person.avatar }}" height="50" width="50" alt="">
-            <p>Pokemon naam</p>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <img src="{{ person.avatar }}" height="50" width="50" alt="">
-            <p>Pokemon naam</p>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <img src="{{ person.avatar }}" height="50" width="50" alt="">
-            <p>Pokemon naam</p>
-          </a>
-        </li>
+        {% for p in pokemon %}
+          <li>
+              <h4>{{ p.name }}</h4>
+              <img src="{{p.img}}" alt="">
+          </li>
+        {% endfor %}
       </ul>
     </article>
   </section>

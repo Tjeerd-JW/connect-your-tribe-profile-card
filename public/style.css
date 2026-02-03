@@ -114,7 +114,23 @@ body {
         padding: 0;
         margin: 0;
 
-        li {}
+        li {
+          display: flex;
+          flex-direction: column-reverse;
+          text-decoration: none;
+          color: #102e4a;
+
+          img {
+            width: 96px;
+            margin: 0 auto;
+          }
+
+          h4 {
+            margin: 0;
+            text-align: center;
+            font-size: 2rem;
+          }
+        }
       }
     }
   }
@@ -149,7 +165,6 @@ body {
   .profile-info {
     height: clamp(500px, 100%, 750px);
     max-height: unset;
-    margin-top: -50px;
     opacity: 1;
   }
 
