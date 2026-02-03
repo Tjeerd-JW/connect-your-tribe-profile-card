@@ -1,16 +1,54 @@
 {% render 'partials/head.liquid' %}
 
+{% comment %} alle data defineren {% endcomment %}
+{% assign birthday = person.birthdate | date: '%s' %}
+{% assign now = 'now' | date: '%s' %}
+
+{% assign currentDate = 'now' | date: '%Y-%m-%d' %}
+{% assign currentYear = 'now' | date: '%Y' %}
+{% assign currentMonth = 'now' | date: '%m' %}
+{% assign currentDay = 'now' | date: '%d' %}
+{% assign birthYear = person.birthdate | date: '%Y' %}
+{% assign birthMonth = person.birthdate | date: '%m' %}
+{% assign birthdateDay = person.birthdate | date: '%d' %}
+
+{% comment %} leeftijd uitrekenen {% endcomment %}
+{% assign age_diff = now | minus: birthday %}
+{% assign seconds_in_year = 31557600 %}
+{% assign age = age_diff | divided_by: seconds_in_year | floor %}
+
+{% comment %} countdown naar volgende verjaardag {% endcomment %}
+{% if currentMonth > birthMonth %}
+  {% comment %} verjaardag is geweest dit jaar {% endcomment %}
+  {% assign nextBirthdayYear = currentYear | plus: 1 %}
+{% elsif currentMonth == birthMonth and currentDay >= birthdateDay %}
+  {% comment %} verjaardag is geweest dit jaar {% endcomment %}
+  {% assign nextBirthdayYear = currentYear | plus: 1 %}
+{% else %}
+  {% comment %} nog niet geweest dit jaar {% endcomment %}
+  {% assign nextBirthdayYear = currentYear %}
+{% endif %}
+
+{% comment %} bereken hoeveel dagen tot de volgende verjaardag {% endcomment %}
+{% assign nextBirthday = nextBirthdayYear | append: '-' | append: birthMonth | append: '-' | append: birthdateDay %}
+{% assign nextBirthdaySeconds = nextBirthday | date: '%s' %}
+{% assign secondsUntilBirthday = nextBirthdaySeconds | minus: now %}
+{% assign countdownDays = secondsUntilBirthday | divided_by: 86400 | floor %}
+
 <main class="profile-card">
   <section class="profile-heading">
     <img src="{{ person.avatar }}" alt="" width="800" height="800" class="profile-card-img">
-    <h1>{{ person.name }}</h1>
+    <h1>
+      {{ person.name }}
+    </h1>
+    <p>Bijnaam</p>
   </section>
 
   <section class="profile-info">
     <article class="profile-age">
-      <p>21 jaar</p>
+      <p>{{ age }} jaar</p>
       <p>{{ person.birthdate }}</p>
-      <p>nog XXX dagen tot verjaardag</p>
+      <p>nog {{ countdownDays }} dagen tot mijn volgende verjaardag die is op {{ nextBirthday }}</p>
     </article>
 
     <article class="profile-bio">

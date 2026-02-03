@@ -46,6 +46,7 @@ body {
 
     h1 {
       grid-column: 2/ -1;
+      grid-row: 1;
       font-size: 2.5rem;
       color: #102e4a;
       display: flex;
@@ -53,20 +54,23 @@ body {
       text-wrap: nowrap;
       transition: 1.5s ease-in-out;
       transform: translatey(130px) translateX(-130px);
-
     }
 
-
+    p {
+      grid-column: 2/-1;
+      opacity: 0;
+      color: #102e4a;
+      transition: ease-in-out 1.75s;
+      grid-row: 1;
+      align-self: center;
+    }
   }
-
-
 
   p {
     margin: 0;
     font-size: 1.5rem;
     display: flex;
   }
-
 
   .profile-info {
     grid-column: 1 / -1;
@@ -77,6 +81,7 @@ body {
     height: 0;
     max-height: 0;
     overflow: hidden;
+    opacity: 0;
     transition: linear 1.5s;
 
     .profile-bio {
@@ -112,9 +117,6 @@ body {
         li {}
       }
     }
-
-
-
   }
 }
 
@@ -126,22 +128,29 @@ body {
   .profile-heading {
     img {
       margin: auto;
-
       transform: rotateZ(360deg) rotate3d(1, 1, 0, 360deg) translateX(0px);
     }
 
     h1 {
       transform: translatey(0px) translateX(0px);
+      font-size: 4rem;
+      height: fit-content;
+    }
 
+    p {
+      opacity: 1;
+      font-size: 2.75rem;
+      margin-top: 30px;
     }
   }
 
   .profile-card-img {}
 
-
   .profile-info {
     height: clamp(500px, 100%, 750px);
     max-height: unset;
+    margin-top: -50px;
+    opacity: 1;
   }
 
 }
