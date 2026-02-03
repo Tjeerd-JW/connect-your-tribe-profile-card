@@ -60,7 +60,8 @@ body {
       grid-column: 2/-1;
       opacity: 0;
       color: #102e4a;
-      transition: ease-in-out 1.75s;
+      transition: ease-in .4s;
+      text-wrap: nowrap;
       grid-row: 1;
       align-self: center;
     }
