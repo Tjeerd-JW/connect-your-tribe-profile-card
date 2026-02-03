@@ -1,55 +1,64 @@
 {% render 'partials/head.liquid' %}
 
 <main class="profile-card">
-<section class="profile-heading">
-  <img src="{{ person.avatar }}" alt="" width="800" height="800" class="profile-card-img">
-  <h1>{{ person.name }}</h1>
-</section>
-
+  <section class="profile-heading">
+    <img src="{{ person.avatar }}" alt="" width="800" height="800" class="profile-card-img">
+    <h1>{{ person.name }}</h1>
+  </section>
 
   <section class="profile-info">
-    <h2>Over mij</h2>
-    <p>{{ person.bio }}</p>
+    <article class="profile-age">
+      <p>21 jaar</p>
+      <p>{{ person.birthdate }}</p>
+      <p>nog XXX dagen tot verjaardag</p>
+    </article>
 
-    <h3>Mijn ideale pokemon team</h3>
-    <ul>
-      <li>
-        <a href="#">
-          <img src="{{ person.avatar }}" height="50" width="50" alt="">
-          <p>Pokemon naam</p>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <img src="{{ person.avatar }}" height="50" width="50" alt="">
-          <p>Pokemon naam</p>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <img src="{{ person.avatar }}" height="50" width="50" alt="">
-          <p>Pokemon naam</p>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <img src="{{ person.avatar }}" height="50" width="50" alt="">
-          <p>Pokemon naam</p>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <img src="{{ person.avatar }}" height="50" width="50" alt="">
-          <p>Pokemon naam</p>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <img src="{{ person.avatar }}" height="50" width="50" alt="">
-          <p>Pokemon naam</p>
-        </a>
-      </li>
-    </ul>
+    <article class="profile-bio">
+      <h2>Over mij</h2>
+      <p>{{ person.bio }}</p>
+    </article>
+
+    <article class="profile-pokemon">
+      <h3>Mijn ideale pokemon team</h3>
+      <ul>
+        <li>
+          <a href="#">
+            <img src="{{ person.avatar }}" height="50" width="50" alt="">
+            <p>Pokemon naam</p>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img src="{{ person.avatar }}" height="50" width="50" alt="">
+            <p>Pokemon naam</p>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img src="{{ person.avatar }}" height="50" width="50" alt="">
+            <p>Pokemon naam</p>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img src="{{ person.avatar }}" height="50" width="50" alt="">
+            <p>Pokemon naam</p>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img src="{{ person.avatar }}" height="50" width="50" alt="">
+            <p>Pokemon naam</p>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img src="{{ person.avatar }}" height="50" width="50" alt="">
+            <p>Pokemon naam</p>
+          </a>
+        </li>
+      </ul>
+    </article>
   </section>
 </main>
 

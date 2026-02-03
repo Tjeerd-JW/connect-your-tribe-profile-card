@@ -79,28 +79,41 @@ body {
     overflow: hidden;
     transition: linear 1.5s;
 
-    a {
-      color: #102e4a;
-      text-decoration: none;
+    .profile-bio {
+      grid-column: 2/-1;
+      padding: 0 1rem;
+
+      h2 {
+        margin: 0;
+        font-size: 2rem;
+        width: fit-content;
+      }
     }
 
-    img {
-      width: 1.5rem;
-      height: auto;
-      margin: 0 5px;
-    }
-
-    h2 {
-      margin: 0 auto 0 auto;
-      font-size: 2rem;
-      width: fit-content;
-    }
-
-    .profile-card-links {
+    .profile-age {
       display: flex;
-      justify-content: center;
-      align-items: center;
+      flex-direction: column;
+      justify-content: start;
+      padding: 0 1rem;
     }
+
+    .profile-pokemon {
+      grid-column: 1/-1;
+      padding: 0 1rem;
+
+      ul {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, auto);
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        li {}
+      }
+    }
+
+
 
   }
 }
@@ -132,4 +145,3 @@ body {
   }
 
 }
-
