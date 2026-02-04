@@ -14,7 +14,10 @@ const personResponse = await fetch('https://fdnd.directus.app/items/person/' + p
 
 // Lees van de response van die fetch het JSON object in, waar we iets mee kunnen doen
 const personResponseJSON = await personResponse.json()
-
+const customData = JSON.parse(personResponseJSON.data.custom)
+const personData = personResponseJSON.data
+personData.custom =  JSON.parse(personData.custom)
+const pokemonArray = await pokemonFetcher(customData.pokemon)
 // Controleer eventueel de data in je console
 // (Let op: dit is _niet_ de console van je browser, maar van NodeJS, in je terminal)
 // console.log(personResponseJSON)
@@ -34,7 +37,7 @@ async function pokemonFetcher(pokemonList) {
       results.push({
         name: data.species.name,
         // als shiny true is is hij shiny
-        img: pokemon.shiny ?  data.sprites.front_shiny :  data.sprites.front_default,
+        img: pokemon.shiny ? data.sprites.front_shiny : data.sprites.front_default,
         id: data.name
       })
     } catch (error) {
@@ -67,16 +70,21 @@ app.use(express.urlencoded({ extended: true }))
 // Om Views weer te geven, heb je Routes nodig
 // Maak een GET route voor de index (meestal doe je dit in de root, als /)
 // In je visitekaartje was dit waarschijnlijk index.html
+
+
 app.get('/', async function (request, response) {
   // Render index.liquid uit de Views map en geef de opgehaalde data mee, in een variabele genaamd person
-     const customData = JSON.parse(personResponseJSON.data.custom)
-    const pokemonArray = await pokemonFetcher(customData.pokemon)
- 
   response.render('index.liquid', {
     person: personResponseJSON.data,
     pokemon: pokemonArray
   })
+})
 
+app.get('/pokemon', async function (request, response) {
+  response.render('pokemon.liquid', {
+    person: personResponseJSON.data,
+    pokemon: pokemonArray
+  })
 })
 
 // Had je meer pagina's in je oude visitekaartje? Zoals een contact.html?

@@ -3,18 +3,39 @@
   font-family: open sans;
 }
 
-
-
 body {
   position: fixed;
   overflow-x: hidden;
   width: 100dvw;
   display: flex;
-  justify-content: center;
   align-items: center;
   height: 100dvh;
+  flex-direction: column;
+  margin: 0;
 }
 
+nav {
+  background-color: #a682ff;
+  top: 0;
+  margin: 0;
+  width: 100dvw;
+  height: 50px;
+  min-height: 50px;
+  display: flex;
+  justify-content: space-around;
+
+  a {
+    height: min-content;
+    margin: auto;
+    text-decoration: none;
+    color: #102e4a;
+    font-size: 1.75rem;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
 
 .profile-card {
   width: clamp(20em, 60dvw, 320px);
@@ -26,6 +47,7 @@ body {
   grid-template-columns: 1fr 1fr 1fr;
   height: 210px;
   transition: 1.5s ease-in-out;
+  margin: 5rem;
 
   .profile-heading {
     grid-column: 1 /-1;
@@ -33,15 +55,21 @@ body {
     grid-template-columns: 1fr 1fr 1fr;
 
     img {
-      width: 10em;
-      height: 10em;
+      width: 7.5em;
+      height: 7.5em;
       border: 5px solid #fff;
       border-radius: 10em;
       box-shadow: 0 0 2px 2px rgba(0, 0, 0, .2);
       justify-content: left;
       display: flex;
       transition: 1.5s ease-in-out;
+      transform: translatex(100px);
+
+      width: 10em;
+      height: 10em;
       transform: translatex(80px);
+
+
     }
 
     h1 {
@@ -53,18 +81,10 @@ body {
       justify-content: left;
       text-wrap: nowrap;
       transition: 1.5s ease-in-out;
+      transform: translatey(130px) translateX(-85px);
       transform: translatey(130px) translateX(-130px);
     }
 
-    p {
-      grid-column: 2/-1;
-      opacity: 0;
-      color: #102e4a;
-      transition: ease-in .4s;
-      text-wrap: nowrap;
-      grid-row: 1;
-      align-self: center;
-    }
   }
 
   p {
@@ -74,9 +94,6 @@ body {
   }
 
   .profile-info {
-    grid-column: 1 / -1;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
     color: #102e4a;
     margin: 0 auto 10px auto;
     height: 0;
@@ -85,9 +102,14 @@ body {
     opacity: 0;
     transition: linear 1.5s;
 
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 1fr;
+
+
     .profile-bio {
-      grid-column: 2/-1;
       padding: 0 1rem;
+      grid-column: 1/-1;
 
       h2 {
         margin: 0;
@@ -103,35 +125,41 @@ body {
       padding: 0 1rem;
     }
 
-    .profile-pokemon {
-      grid-column: 1/-1;
-      padding: 0 1rem;
 
-      ul {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(2, auto);
-        list-style: none;
-        padding: 0;
+  }
+}
+
+.profile-links {
+  padding: 0 1rem;
+}
+
+.profile-pokemon {
+  grid-column: 1/-1;
+  padding: 0 1rem;
+
+  ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, auto);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      display: flex;
+      flex-direction: column-reverse;
+      text-decoration: none;
+      color: #102e4a;
+
+      img {
+        width: 96px;
+        margin: 0 auto;
+      }
+
+      h4 {
         margin: 0;
-
-        li {
-          display: flex;
-          flex-direction: column-reverse;
-          text-decoration: none;
-          color: #102e4a;
-
-          img {
-            width: 96px;
-            margin: 0 auto;
-          }
-
-          h4 {
-            margin: 0;
-            text-align: center;
-            font-size: 2rem;
-          }
-        }
+        text-align: center;
+        font-size: 2rem;
       }
     }
   }
@@ -139,8 +167,10 @@ body {
 
 /* effects */
 .open-card {
-  width: clamp(20em, 100%, 40em);
+  /* width: clamp(20em, 100%, 40em); */
   height: 750px;
+
+  width: clamp(320px, 50dvw, 1000px);
 
   .profile-heading {
     img {
@@ -150,7 +180,8 @@ body {
 
     h1 {
       transform: translatey(0px) translateX(0px);
-      font-size: 4rem;
+      font-size: 3.5rem;
+      text-wrap: wrap;
       height: fit-content;
     }
 
@@ -164,7 +195,7 @@ body {
   .profile-card-img {}
 
   .profile-info {
-    height: clamp(500px, 100%, 750px);
+    height: unset;
     max-height: unset;
     opacity: 1;
   }
