@@ -1,0 +1,45 @@
+{
+  "pokemon": [
+    {
+      "name": "unfezant",
+      "shiny": true
+    },
+    {
+      "name": "sunflora",
+      "shiny": false
+    },
+    {
+      "name": "heracross",
+      "shiny": false
+    },
+    {
+      "name": "kyurem-black",
+      "shiny": true
+    },
+    {
+      "name": "avalugg-hisui",
+      "shiny": true
+    },
+    {
+      "name": "torterra",
+      "shiny": false
+    }
+  ],
+  "links": [
+    {
+      "name": "Github",
+      "url": "https://github.com/Tjeerd-JW",
+      "logo": "https://images.icon-icons.com/3685/PNG/512/github_logo_icon_229278.png"
+    },
+    {
+      "name": "Linkedin",
+      "url": "https://www.linkedin.com/in/tjeerd-wokke-4b35ba2b6/",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/LinkedIn_icon.svg/3840px-LinkedIn_icon.svg.png"
+    },
+    {
+      "name": "Letterboxd",
+      "url": "https://letterboxd.com/yrestial/",
+      "logo": "https://a.ltrbxd.com/logos/letterboxd-mac-icon.png"
+    }
+  ]
+}

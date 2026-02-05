@@ -4,6 +4,8 @@
 {% assign birthday = person.birthdate | date: '%s' %}
 {% assign now = 'now' | date: '%s' %}
 
+{% assign readableBirthdate = person.birthdate | date: "%A %b %d %Y" %}
+
 {% assign currentDate = 'now' | date: '%Y-%m-%d' %}
 {% assign currentYear = 'now' | date: '%Y' %}
 {% assign currentMonth = 'now' | date: '%m' %}
@@ -34,6 +36,7 @@
 {% assign nextBirthdaySeconds = nextBirthday | date: '%s' %}
 {% assign secondsUntilBirthday = nextBirthdaySeconds | minus: now %}
 {% assign countdownDays = secondsUntilBirthday | divided_by: 86400 | floor %}
+{% assign readableNextBirthday = nextBirthday | date: "%A %b %d %Y" %}
 
 <main class="profile-card">
   <section class="profile-heading">
@@ -45,8 +48,8 @@
 
   <section class="profile-info">
     <article class="profile-age">
-      <p>{{ age }} jaar geboren op {{ person.birthdate }}</p>
-      <p>nog {{ countdownDays }} dagen tot mijn volgende verjaardag die is op {{ nextBirthday }}</p>
+      <p>Ik ben {{ age }} jaar, geboren op {{ readableBirthdate }}</p>
+      <p>nog {{ countdownDays }} dagen tot mijn volgende verjaardag die is op {{ readableNextBirthday }}</p>
     </article>
 
     <article class="profile-bio">
@@ -56,7 +59,11 @@
 
     <article class="profile-links">
       <h2>Links</h2>
-      <a href="https://github.com/{{person.github_handle}}">Github</a>
+      {% for link in person.custom.links %}
+        <a href="{{link.url}}">
+          <img width="50px" src="{{link.logo}}" alt="{{link.name}}">
+        </a>
+      {% endfor %}
     </article>
   </section>
 </main>
