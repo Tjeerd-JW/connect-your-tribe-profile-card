@@ -10,10 +10,16 @@ async function getPerson() {
 }
 
 let profileCard = document.querySelector('.profile-card')
+let body = document.querySelector('body')
 
-profileCard.addEventListener("click", profileCardHandler)
+profileCard.addEventListener("click", profileCardOpener)
+profileCard.addEventListener("dblclick", profileCardCloser)
 
-function profileCardHandler() {
-profileCard.classList.toggle('open-card')
+function profileCardOpener() {
+profileCard.classList.add('open-card')
 }
 
+function profileCardCloser(){
+    profileCard.classList.remove('open-card')
+
+}

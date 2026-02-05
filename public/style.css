@@ -29,7 +29,12 @@ nav {
     margin: auto;
     text-decoration: none;
     color: #102e4a;
-    font-size: 1.75rem;
+    font-size: 1.5rem;
+
+    @media (min-width:660px) {
+      font-size: 1.75rem;
+
+    }
 
     &:hover {
       text-decoration: underline;
@@ -131,6 +136,25 @@ nav {
 
 .profile-links {
   padding: 0 1rem;
+
+  a {
+    text-decoration: none;
+    transition: linear .5s;
+    min-height: 50px;
+    margin: 0 .2rem;
+
+    img {
+      transition: linear .2s;
+
+    }
+
+    &:hover {
+      img {
+        transform: scale(1.2);
+        z-index: 10;
+      }
+    }
+  }
 }
 
 .profile-pokemon {
@@ -168,21 +192,37 @@ nav {
 /* effects */
 .open-card {
   /* width: clamp(20em, 100%, 40em); */
-  height: 750px;
-
-  width: clamp(320px, 50dvw, 1000px);
+  height: min-content;
+  width: clamp(320px, 90%, 800px);
 
   .profile-heading {
+    max-width: fit-content;
+    margin: auto;
+
     img {
-      margin: auto;
+      width: 120px;
+      height: 120px;
       transform: rotateZ(360deg) rotate3d(1, 1, 0, 360deg) translateX(0px);
+      margin: .7rem .5rem;
+
+      @media (min-width: 660px) {
+        width: 160px;
+        height: 160px;
+      }
     }
 
     h1 {
       transform: translatey(0px) translateX(0px);
-      font-size: 3.5rem;
+      font-size: 2.5rem;
       text-wrap: wrap;
       height: fit-content;
+      margin: auto;
+      grid-column: 2/-1;
+
+      @media (min-width: 660px) {
+        font-size: 3.5rem;
+
+      }
     }
 
     p {

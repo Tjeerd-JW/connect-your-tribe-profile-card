@@ -48,8 +48,8 @@
 
   <section class="profile-info">
     <article class="profile-age">
-      <p>Ik ben {{ age }} jaar, geboren op {{ readableBirthdate }}</p>
-      <p>nog {{ countdownDays }} dagen tot mijn volgende verjaardag die is op {{ readableNextBirthday }}</p>
+      <p>Ik ben {{ age }} jaar, geboren op {{ readableBirthdate }},
+      nog {{ countdownDays }} dagen tot mijn volgende verjaardag die is op {{ readableNextBirthday }}</p>
     </article>
 
     <article class="profile-bio">
@@ -60,7 +60,7 @@
     <article class="profile-links">
       <h2>Links</h2>
       {% for link in person.custom.links %}
-        <a href="{{link.url}}">
+        <a target="_blank" href="{{link.url}}">
           <img width="50px" src="{{link.logo}}" alt="{{link.name}}">
         </a>
       {% endfor %}
